@@ -1,6 +1,5 @@
 <template>
     <div class="app">
-    <router-view></router-view>
         <div class="header">游戏
             <router-link to="/" class="back">
                 <img src="../images/prev.png" />
@@ -9,33 +8,38 @@
                 <img src="../images/caidan.png" @click="navList" />
                 <div class="guide" id="guide">
                     <ul>
-                        <li><router-link to="">首页</router-link></li>
-                        <li><router-link to="">单机</router-link></li>
-                        <li><router-link to="">网游</router-link></li>
-                        <li><router-link to="">应用</router-link></li>
-                        <li><router-link to="">攻略</router-link></li>
-                        <li><router-link to="">资讯</router-link></li>
+                        <li><router-link to="/">首页</router-link></li>
+                        <li><router-link to="/playlist">单机</router-link></li>
+                        <li><router-link to="/playlist">网游</router-link></li>
+                        <li><router-link to="/playlist">应用</router-link></li>
+                        <li><router-link to="/playlist">攻略</router-link></li>
+                        <li><router-link to="/playlist">资讯</router-link></li>
                     </ul>
                 </div>
             </router-link>
         </div>
-        <ul class="gamelist" id="infocon">
-            <li>
-                <a href="12234.html"><img src="../images/1407829211679251.jpg" alt="怪物猎人"></a>
-                <h3><a href="12234.html">怪物猎人</a></h3>
-                <p>人气：6</p>
-                <p>大小：155.1 MB</p>
-                <a class="btn_down" href="12234.html">抢先下载</a>
-            </li>
+        <ul class="gamelist">
+          <li v-for="item in list" :key="item.id">
+            <router-link to="/container">
+              <img :src="item.img_url" alt="掌上炸翻天">
+            </router-link>
+            <h3>
+              <router-link to="/container">{{item.title}}</router-link>
+            </h3>
+            <p>人气：{{item.renqi}}</p>
+            <p>大小：{{item.big}} MB</p>
+            <router-link class="btn_down" to="/container">抢先下载</router-link>
+          </li>
         </ul>
     </div>
 </template>
 
 <script>
+import{Toast} from "mint-ui";
     export default {
       data() {
           return {
-             
+             list:[]
         }
       },
       methods:{
@@ -45,10 +49,21 @@
           a.style.opacity=1;
           else
           a.style.opacity=0;
+        },
+        yxList(){
+          var url="http://127.0.0.1:3000/yxlist/list";
+          this.$http.get(url).then(result=>{
+            if(result.body.code == 1){
+              this.list = result.body.msg;
+                console.log(this.list);
+              }
+            else
+              Toast("加载轮播图片失败!!");
+          })
         }
       },
       created() {
-
+        this.yxList();
       },
     }
 </script>

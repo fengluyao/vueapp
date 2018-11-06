@@ -4,12 +4,12 @@
     <span class="menu" :style="note" @click="navList"></span>
     <div class="guide" id="guide">
       <ul>
-        <li><router-link to="">首页</router-link></li>
-        <li><router-link to="">单机</router-link></li>
-        <li><router-link to="">网游</router-link></li>
-        <li><router-link to="">应用</router-link></li>
-        <li><router-link to="">攻略</router-link></li>
-        <li><router-link to="">资讯</router-link></li>
+        <li><router-link to="/">首页</router-link></li>
+        <li><router-link to="/playlist">单机</router-link></li>
+        <li><router-link to="/playlist">网游</router-link></li>
+        <li><router-link to="/playlist">应用</router-link></li>
+        <li><router-link to="/playlist">攻略</router-link></li>
+        <li><router-link to="/playlist">资讯</router-link></li>
       </ul>
     </div>
     <router-link to="" class="search" :style="note1"></router-link>
@@ -30,25 +30,25 @@
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-2 mui-col-sm-3">
-        <router-link to="/">
+        <router-link to="/playlist">
           <img src="../images/nav2.png" />
           <p>安卓网游</p>
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-2 mui-col-sm-3">
-        <router-link to="/">
+        <router-link to="/playlist">
           <img src="../images/nav3.png" />
           <p>手机应用</p>
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-2 mui-col-sm-3">
-        <router-link to="/">
+        <router-link to="/playlist">
           <img src="../images/nav4.png" />
           <p>攻略大全</p>
         </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-2 mui-col-sm-3">
-        <router-link to="/">
+        <router-link to="/playlist">
           <img src="../images/nav5.png" />
           <p>新闻资讯</p>
         </router-link>
@@ -62,15 +62,15 @@
   </div>
   <ul class="gamelist">
     <li v-for="item in applist" :key="item.id">
-      <a href="android/12234.html">
+      <router-link to="/container">
         <img :src="item.img_url" alt="掌上炸翻天">
-      </a>
+      </router-link>
       <h3>
-        <a href="android/12234.html">{{item.title}}</a>
+        <router-link to="/container">{{item.title}}</router-link>
       </h3>
       <p>人气：{{item.renqi}}</p>
       <p>大小：{{item.big}} MB</p>
-      <a class="btn_down" href="android/12234.html">抢先下载</a>
+      <router-link class="btn_down" to="/container">抢先下载</router-link>
     </li>
   </ul>
   <div class="more">
@@ -80,15 +80,15 @@
   </div>
   <ul class="gamelist">
     <li v-for="item in jdlist" :key="item.id">
-      <a href="android/12234.html">
+      <router-link to="/container">
         <img :src="item.img_url" alt="掌上炸翻天">
-      </a>
+      </router-link>
       <h3>
-        <a href="android/12234.html">{{item.title}}</a>
+        <router-link to="/container">{{item.title}}</router-link>
       </h3>
       <p>人气：{{item.renqi}}</p>
       <p>大小：{{item.big}} MB</p>
-      <a class="btn_down" href="android/12234.html">抢先下载</a>
+      <router-link class="btn_down" to="/container">抢先下载</router-link>
     </li>
   </ul>
   <div class="more">

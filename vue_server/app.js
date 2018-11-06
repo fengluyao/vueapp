@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require('body-parser');
 
 const index = require("./routes/index");
+const yxlist = require("./routes/yxlist");
 const bodyParse = require("body-parser")
 var app = express();
 
@@ -19,3 +20,4 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static("./public"));
 
 app.use("/index",index);
+app.use("/yxlist",yxlist);
