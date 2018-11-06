@@ -47,9 +47,9 @@
             <div></div>
             <h4>内容提要</h4>
         </div>
-        <div class="text">
+        <p class="text">
             《怪物猎人（DynamicHunting）》是一款动作射击游戏，是由株式会社カプコン开发制作。本作是CAPCOM经典动作游戏《怪物猎人》的最新作，本作是以原始社会作为游戏的背景，虚构了许多现实中不存在的怪物，然后玩家在游戏中扮演一名猎人，在原始世界进行狩猎，完成各种任务。本作绝对能带给玩家原始风味十足的生活体验，喜欢的玩家...
-        </div>
+        </p>
         <div class="more">
             <div></div>
             <h4>游戏推荐</h4>
@@ -266,7 +266,10 @@ import {Toast} from "mint-ui"
     .img{
         width:100%;
     }
-    .text{
+    .app .text{
+        display:block;
+        width:100%;
+        height:250px;
         font-size:14px;
         padding:10px;
         color:#222;
